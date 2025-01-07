@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nikhil Maske</title>
+    <link>https://nikhilmaske-2001.github.io/</link>
+    <description>Recent content on Nikhil Maske</description>
+    <generator>Hugo -- 0.140.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Jan 2025 21:22:55 +0530</lastBuildDate>
+    <atom:link href="https://nikhilmaske-2001.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Write a Good Dockerfile: Best Practices and Tips</title>
+      <link>https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/</link>
+      <pubDate>Tue, 07 Jan 2025 21:22:55 +0530</pubDate>
+      <guid>https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/</guid>
+      <description>&lt;p&gt;Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use a Small Base Image&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Understanding Workers in Node.js and How They Solve Scalability Challenges</title>
+      <link>https://nikhilmaske-2001.github.io/posts/nodejs-workers/</link>
+      <pubDate>Mon, 06 Jan 2025 20:34:49 +0530</pubDate>
+      <guid>https://nikhilmaske-2001.github.io/posts/nodejs-workers/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Node.js is well-known for its single-threaded, non-blocking architecture, which excels at handling I/O-bound tasks efficiently. However, when faced with CPU-intensive operations or high levels of concurrent requests, the single-threaded nature of Node.js can become a bottleneck. This is where workers in Node.js come into play, enabling developers to enhance scalability and performance by leveraging multithreading.&lt;/p&gt;
+&lt;p&gt;In this blog post, we’ll explore how workers work in Node.js, their role in improving application performance, and how they can be used to solve common problems in production environments.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

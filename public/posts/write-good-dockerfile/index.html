@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How to Write a Good Dockerfile: Best Practices and Tips | Nikhil Maske</title>
+<meta name="keywords" content="">
+<meta name="description" content="Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.
+
+Use a Small Base Image
+
+The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:">
+<meta name="author" content="">
+<link rel="canonical" href="https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://nikhilmaske-2001.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://nikhilmaske-2001.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://nikhilmaske-2001.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://nikhilmaske-2001.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://nikhilmaske-2001.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/">
+  <meta property="og:site_name" content="Nikhil Maske">
+  <meta property="og:title" content="How to Write a Good Dockerfile: Best Practices and Tips">
+  <meta property="og:description" content="Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.
+Use a Small Base Image The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-01-07T21:22:55+05:30">
+    <meta property="article:modified_time" content="2025-01-07T21:22:55+05:30">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to Write a Good Dockerfile: Best Practices and Tips">
+<meta name="twitter:description" content="Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.
+
+Use a Small Base Image
+
+The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://nikhilmaske-2001.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How to Write a Good Dockerfile: Best Practices and Tips",
+      "item": "https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How to Write a Good Dockerfile: Best Practices and Tips",
+  "name": "How to Write a Good Dockerfile: Best Practices and Tips",
+  "description": "Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.\nUse a Small Base Image The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:\n",
+  "keywords": [
+    
+  ],
+  "articleBody": "Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.\nUse a Small Base Image The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:\nalpine: A lightweight Linux distribution (~5MB) suitable for many applications.\ndebian-slim or ubuntu-minimal: Stripped-down versions of Debian and Ubuntu.\nExample:\nFROM alpine:latest Note: Ensure the base image you choose is actively maintained and suitable for your application’s requirements.\nLeverage Multi-Stage Builds Multi-stage builds enable you to optimize your Docker image by separating the build and runtime environments. This reduces the final image size and ensures only the necessary files are included.\nExample:\n# Stage 1: Build FROM golang:1.20 AS builder WORKDIR /app COPY . . RUN go build -o myapp # Stage 2: Runtime FROM alpine:latest WORKDIR /app COPY --from=builder /app/myapp . CMD [\"./myapp\"] This approach eliminates the need to include compilers or build tools in the final image.\nMinimize the Number of Layers Each instruction in a Dockerfile creates a new layer in the image. While Docker caches these layers for efficiency, excessive layers can bloat your image size. Combine related commands using \u0026\u0026 where appropriate.\nExample:\nRUN apt-get update \u0026\u0026 \\ apt-get install -y curl vim \u0026\u0026 \\ apt-get clean \u0026\u0026 rm -rf /var/lib/apt/lists/* Avoid breaking this into multiple RUN instructions unless necessary.\nUse .dockerignore Files Just like .gitignore prevents unnecessary files from being tracked by Git, .dockerignore prevents unnecessary files (e.g., logs, temporary files, or source control metadata) from being added to your Docker image.\nExample .dockerignore file:\nnode_modules *.log .dockerignore .git This helps reduce build context size and improves build performance.\nPin Image and Dependency Versions Always specify exact versions of base images and dependencies to ensure reproducibility. Avoid using latest as it can lead to inconsistent builds if the base image changes.\nExample:\nFROM python:3.9.7 This ensures your builds remain stable and predictable over time.\nAvoid Running as Root For security reasons, avoid running your application as the root user. Create a non-root user in the Dockerfile and switch to it.\nExample:\nRUN addgroup -S appgroup \u0026\u0026 adduser -S appuser -G appgroup USER appuser Running as a non-root user minimizes the risk of privilege escalation in case of a vulnerability.\nOptimize File Copying Minimize the number of COPY or ADD instructions and copy only the necessary files to the image. Use .dockerignore to exclude irrelevant files.\nExample:\nCOPY requirements.txt . RUN pip install -r requirements.txt COPY . . By copying requirements.txt first, Docker can cache the installation step if the file hasn’t changed, speeding up subsequent builds.\nUse Official Images and Libraries Where possible, use official images from trusted sources. These images are regularly updated and maintained to include security patches.\nExample:\nFROM node:16 This ensures your application starts with a reliable and well-documented foundation.\nKeep Dockerfiles Simple and Readable A clean and well-documented Dockerfile is easier to maintain and debug. Add comments to explain non-obvious instructions and use meaningful names for build stages.\nExample:\n# Install dependencies and build the application FROM node:16 AS builder WORKDIR /app COPY package*.json ./ RUN npm install COPY . . RUN npm run build # Use a lightweight runtime environment FROM nginx:alpine COPY --from=builder /app/build /usr/share/nginx/html This makes it clear what each stage does.\nTest and Lint Your Dockerfile Use tools like hadolint to lint your Dockerfile for potential issues and best practice violations.\nExample:\nhadolint Dockerfile Regular testing ensures your Dockerfile builds correctly and produces a functioning image.\nConclusion Writing a good Dockerfile is an art as much as it is a science. By following these best practices, you can create Dockerfiles that are efficient, secure, and maintainable. Remember to keep experimenting and iterating as you learn more about Docker and containerization.\nHappy containerizing!\n",
+  "wordCount" : "692",
+  "inLanguage": "en",
+  "datePublished": "2025-01-07T21:22:55+05:30",
+  "dateModified": "2025-01-07T21:22:55+05:30",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nikhil Maske",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://nikhilmaske-2001.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://nikhilmaske-2001.github.io/" accesskey="h" title="Nikhil Maske (Alt + H)">Nikhil Maske</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      How to Write a Good Dockerfile: Best Practices and Tips
+    </h1>
+    <div class="post-meta"><span title='2025-01-07 21:22:55 +0530 IST'>January 7, 2025</span>
+
+</div>
+  </header> 
+  <div class="post-content"><p>Docker has revolutionized the way we build, ship, and run applications, making containerization an essential tool for developers and DevOps professionals alike. At the heart of every Docker container is the Dockerfile—a simple text file containing instructions for building a Docker image. While creating a Dockerfile is straightforward, writing an efficient and maintainable Dockerfile requires careful consideration. In this blog, we’ll explore the best practices for crafting high-quality Dockerfiles.</p>
+<ol>
+<li>Use a Small Base Image</li>
+</ol>
+<p>The base image you choose directly impacts the size of your Docker image. Smaller base images lead to faster builds, reduced storage costs, and quicker deployments. Popular minimal base images include:</p>
+<p><code>alpine</code>: A lightweight Linux distribution (~5MB) suitable for many applications.</p>
+<p><code>debian-slim</code> or <code>ubuntu-minimal</code>: Stripped-down versions of Debian and Ubuntu.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>FROM alpine:latest
+</code></pre><p>Note: Ensure the base image you choose is actively maintained and suitable for your application’s requirements.</p>
+<ol start="2">
+<li>Leverage Multi-Stage Builds</li>
+</ol>
+<p>Multi-stage builds enable you to optimize your Docker image by separating the build and runtime environments. This reduces the final image size and ensures only the necessary files are included.</p>
+<p>Example:</p>
+<pre tabindex="0"><code># Stage 1: Build
+FROM golang:1.20 AS builder
+WORKDIR /app
+COPY . .
+RUN go build -o myapp
+
+# Stage 2: Runtime
+FROM alpine:latest
+WORKDIR /app
+COPY --from=builder /app/myapp .
+CMD [&#34;./myapp&#34;]
+</code></pre><p>This approach eliminates the need to include compilers or build tools in the final image.</p>
+<ol start="3">
+<li>Minimize the Number of Layers</li>
+</ol>
+<p>Each instruction in a Dockerfile creates a new layer in the image. While Docker caches these layers for efficiency, excessive layers can bloat your image size. Combine related commands using &amp;&amp; where appropriate.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>RUN apt-get update &amp;&amp; \
+    apt-get install -y curl vim &amp;&amp; \
+    apt-get clean &amp;&amp; rm -rf /var/lib/apt/lists/*
+</code></pre><p>Avoid breaking this into multiple RUN instructions unless necessary.</p>
+<ol start="4">
+<li>Use .dockerignore Files</li>
+</ol>
+<p>Just like .gitignore prevents unnecessary files from being tracked by Git, .dockerignore prevents unnecessary files (e.g., logs, temporary files, or source control metadata) from being added to your Docker image.</p>
+<p>Example <code>.dockerignore</code> file:</p>
+<pre tabindex="0"><code>node_modules
+*.log
+.dockerignore
+.git
+</code></pre><p>This helps reduce build context size and improves build performance.</p>
+<ol start="5">
+<li>Pin Image and Dependency Versions</li>
+</ol>
+<p>Always specify exact versions of base images and dependencies to ensure reproducibility. Avoid using latest as it can lead to inconsistent builds if the base image changes.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>FROM python:3.9.7
+</code></pre><p>This ensures your builds remain stable and predictable over time.</p>
+<ol start="6">
+<li>Avoid Running as Root</li>
+</ol>
+<p>For security reasons, avoid running your application as the root user. Create a non-root user in the Dockerfile and switch to it.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>RUN addgroup -S appgroup &amp;&amp; adduser -S appuser -G appgroup
+USER appuser
+</code></pre><p>Running as a non-root user minimizes the risk of privilege escalation in case of a vulnerability.</p>
+<ol start="7">
+<li>Optimize File Copying</li>
+</ol>
+<p>Minimize the number of COPY or ADD instructions and copy only the necessary files to the image. Use .dockerignore to exclude irrelevant files.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+</code></pre><p>By copying requirements.txt first, Docker can cache the installation step if the file hasn’t changed, speeding up subsequent builds.</p>
+<ol start="8">
+<li>Use Official Images and Libraries</li>
+</ol>
+<p>Where possible, use official images from trusted sources. These images are regularly updated and maintained to include security patches.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>FROM node:16
+</code></pre><p>This ensures your application starts with a reliable and well-documented foundation.</p>
+<ol start="9">
+<li>Keep Dockerfiles Simple and Readable</li>
+</ol>
+<p>A clean and well-documented Dockerfile is easier to maintain and debug. Add comments to explain non-obvious instructions and use meaningful names for build stages.</p>
+<p>Example:</p>
+<pre tabindex="0"><code># Install dependencies and build the application
+FROM node:16 AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm install
+COPY . .
+RUN npm run build
+
+# Use a lightweight runtime environment
+FROM nginx:alpine
+COPY --from=builder /app/build /usr/share/nginx/html
+</code></pre><p>This makes it clear what each stage does.</p>
+<ol start="10">
+<li>Test and Lint Your Dockerfile</li>
+</ol>
+<p>Use tools like hadolint to lint your Dockerfile for potential issues and best practice violations.</p>
+<p>Example:</p>
+<pre tabindex="0"><code>hadolint Dockerfile
+</code></pre><p>Regular testing ensures your Dockerfile builds correctly and produces a functioning image.</p>
+<h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
+<p>Writing a good Dockerfile is an art as much as it is a science. By following these best practices, you can create Dockerfiles that are efficient, secure, and maintainable. Remember to keep experimenting and iterating as you learn more about Docker and containerization.</p>
+<p>Happy containerizing!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="https://nikhilmaske-2001.github.io/">Nikhil Maske</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
