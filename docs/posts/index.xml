@@ -6,8 +6,17 @@
     <description>Recent content in Posts on Nikhil Maske</description>
     <generator>Hugo -- 0.140.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jan 2025 21:22:55 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jan 2025 15:53:53 +0530</lastBuildDate>
     <atom:link href="https://nikhilmaske-2001.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mastering the /etc/hosts File: A Developer’s Hidden Tool</title>
+      <link>https://nikhilmaske-2001.github.io/posts/etc-hosts-file/</link>
+      <pubDate>Sun, 26 Jan 2025 15:53:53 +0530</pubDate>
+      <guid>https://nikhilmaske-2001.github.io/posts/etc-hosts-file/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;/etc/hosts&lt;/code&gt; file is a critical yet often overlooked configuration file in most Unix-based operating systems, including Linux and macOS. Despite its simplicity, it offers developers and system administrators an invaluable tool for testing and managing network configurations. This blog will explore what the &lt;code&gt;/etc/hosts&lt;/code&gt; file is, its structure, and how you can leverage it to make your projects more efficient.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-the-etchosts-file&#34;&gt;What is the /etc/hosts File?&lt;/h1&gt;
+&lt;p&gt;The &lt;code&gt;/etc/hosts&lt;/code&gt; file is a local file that maps hostnames to IP addresses. Before the operating system queries a DNS (Domain Name System) server to resolve a hostname, it checks this file first. This makes the &lt;code&gt;/etc/hosts&lt;/code&gt; file an easy way to create custom hostname mappings for local development or other purposes.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to Write a Good Dockerfile: Best Practices and Tips</title>
       <link>https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/</link>
