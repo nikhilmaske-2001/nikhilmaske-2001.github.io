@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/write-good-dockerfile/</loc>
+    <loc>https://nikhilmaske-2001.github.io/posts/write-good-dockerfile/</loc>
     <lastmod>2025-01-07T21:22:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://nikhilmaske-2001.github.io/</loc>
     <lastmod>2025-01-07T21:22:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
+    <loc>https://nikhilmaske-2001.github.io/posts/</loc>
     <lastmod>2025-01-07T21:22:55+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/nodejs-workers/</loc>
+    <loc>https://nikhilmaske-2001.github.io/posts/nodejs-workers/</loc>
     <lastmod>2025-01-06T20:34:49+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://nikhilmaske-2001.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://nikhilmaske-2001.github.io/tags/</loc>
   </url>
 </urlset>
